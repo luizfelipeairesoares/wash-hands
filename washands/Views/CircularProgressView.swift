@@ -23,19 +23,17 @@ class CircularProgressView: UIView {
     // MARK: - Init
     
     override init(frame: CGRect) {
-        super.init(frame: .zero)
-        addCircularShapeLayer()
-        addLabel()
+        super.init(frame: frame)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - View Functions
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        addCircularShapeLayer()
+        addLabel()
     }
     
     // MARK: - Public Functions
@@ -58,28 +56,33 @@ class CircularProgressView: UIView {
     
     private func addCircularShapeLayer() {
         let circularPath = UIBezierPath(arcCenter: .zero,
-                                        radius: 100,
+                                        radius: bounds.height / 2.25,
                                         startAngle: 0,
                                         endAngle: 2 * CGFloat.pi,
                                         clockwise: true)
+        circularPath.apply(CGAffineTransform(translationX: bounds.width / 2, y: bounds.height / 2))
         
         let trackLayer = CAShapeLayer()
+        trackLayer.frame = frame
+        trackLayer.bounds = bounds
+        trackLayer.position = CGPoint(x: layer.bounds.midX, y: layer.bounds.midY)
         trackLayer.path = circularPath.cgPath
         trackLayer.strokeColor = UIColor.red.withAlphaComponent(0.25).cgColor
         trackLayer.lineWidth = 10
         trackLayer.fillColor = UIColor.clear.cgColor
         trackLayer.lineCap = .round
-        trackLayer.position = center
         
         layer.addSublayer(trackLayer)
         
+        shapeLayer.frame = frame
+        shapeLayer.bounds = bounds
+        shapeLayer.position = CGPoint(x: layer.bounds.midX, y: layer.bounds.midY)
         shapeLayer.path = circularPath.cgPath
         shapeLayer.strokeEnd = 0
         shapeLayer.strokeColor = UIColor.red.cgColor
         shapeLayer.lineWidth = 10
         shapeLayer.lineCap = .round
         shapeLayer.fillColor = UIColor.clear.cgColor
-        shapeLayer.position = center
         shapeLayer.transform = CATransform3DMakeRotation(-(CGFloat.pi/2), 0, 0, 1)
         
         layer.addSublayer(shapeLayer)
@@ -87,8 +90,7 @@ class CircularProgressView: UIView {
     
     private func addLabel() {
         addSubview(label)
-        label.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-        label.center = center
+        label.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height)
     }
 
 }
