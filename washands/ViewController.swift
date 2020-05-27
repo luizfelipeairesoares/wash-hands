@@ -11,8 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     
     private let progress: CircularProgressView = {
-        let progress = CircularProgressView()
-        progress.backgroundColor = .yellow
+        let progress = CircularProgressView(with: UIColor(hex: "006994"))
         progress.translatesAutoresizingMaskIntoConstraints = false
         return progress
     }()
@@ -33,7 +32,7 @@ class ViewController: UIViewController {
     }
     
     @objc private func handleTap() {
-        progress.startAnimating()
+        progress.startAnimating(duration: 10)
     }
 
 }
