@@ -15,7 +15,7 @@ The folder structure is currently organized like this:
 * SceneDelegate
 * ViewControllers
  - MainViewController
- - MainViewController
+ - MainView
 * Views
  - CircularProgressView
 * Services
