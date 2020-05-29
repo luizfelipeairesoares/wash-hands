@@ -14,31 +14,31 @@ The folder structure is currently organized like this:
 * AppDelegate
 * SceneDelegate
 * ViewControllers
- - MainViewController
- - MainView
+  - MainViewController
+  - MainView
 * Views
- - CircularProgressView
+  - CircularProgressView
 * Services
- - GifService
- - BaseService
- - APIErrors
+  - GifService
+  - BaseService
+  - APIErrors
 * Models
- - GiphyAPIResponse
- - GiphyAPIEntity
- - GiphyAPIImagesEntity
+  - GiphyAPIResponse
+  - GiphyAPIEntity
+  - GiphyAPIImagesEntity
 * Resources
- - Assets/Assets.xcassets
- - Storyboards
-   - LaunchScreen
-   - Main
+  - Assets/Assets.xcassets
+  - Storyboards
+    - LaunchScreen
+    - Main
 * Utils
- - Extensions
-   - UIColor
-   - URLSession
- - VideoPlayer
-   - VideoPlayer
+  - Extensions
+    - UIColor
+    - URLSession
+  - VideoPlayer
+    - VideoPlayer
 * SupportingFiles
-  - Info.plist
+   - Info.plist
 
 ### Some feedback:
 
