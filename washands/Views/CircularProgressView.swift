@@ -11,6 +11,10 @@ import UIKit
 class CircularProgressView: UIView {
     
     // MARK: - Private properties
+    
+    private enum Constants {
+        static let labelFontSize: CGFloat = 32.0
+    }
 
     private let color: UIColor!
     private let shapeLayer = CAShapeLayer()
@@ -22,7 +26,7 @@ class CircularProgressView: UIView {
         let label = UILabel()
         label.text = "Start"
         label.textAlignment = .center
-        label.font = .boldSystemFont(ofSize: 32.0)
+        label.font = .boldSystemFont(ofSize: Constants.labelFontSize)
         return label
     }()
     
@@ -33,6 +37,10 @@ class CircularProgressView: UIView {
         imgView.alpha = 0.0
         return imgView
     }()
+    
+    // MARK: - Public Properties
+    
+    var didFinish: (() -> Void)?
     
     // MARK: - Init
     
@@ -68,7 +76,7 @@ class CircularProgressView: UIView {
             label.text = "\(Int(elapsedTime))"
             timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self] (tmr) in
                 DispatchQueue.main.async { [weak self] in
-                    if elapsedTime > 1 {
+                    if elapsedTime > 0 {
                         elapsedTime -= 1
                         self?.label.text = "\(Int(elapsedTime))"
                     } else {
@@ -104,7 +112,7 @@ class CircularProgressView: UIView {
         trackLayer.position = CGPoint(x: layer.bounds.midX, y: layer.bounds.midY)
         trackLayer.path = circularPath.cgPath
         trackLayer.strokeEnd = 1
-        trackLayer.strokeColor = color.withAlphaComponent(0.25).cgColor
+        trackLayer.strokeColor = color.withAlphaComponent(0.5).cgColor
         trackLayer.lineWidth = 10
         trackLayer.lineCap = .round
         trackLayer.fillColor = UIColor.clear.cgColor
@@ -151,6 +159,8 @@ class CircularProgressView: UIView {
         UIView.animate(withDuration: 1.0, delay: 0.5, options: .curveLinear, animations: {
             self.imageView.alpha = 0.0
             self.label.frame.origin.y -= 40.0
+        }, completion: { [weak self] (completed) in
+            self?.didFinish?()
         })
     }
 
