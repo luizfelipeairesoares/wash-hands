@@ -41,8 +41,19 @@ class MainView: UIView {
         return label
     }()
     
+    private let labelStep: UILabel = {
+        let label = UILabel()
+        label.alpha = 0
+        label.font = .boldSystemFont(ofSize: Constants.fontSize)
+        label.textColor = .black
+        label.numberOfLines = 4
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     private let progress: CircularProgressView = {
-        let progress = CircularProgressView(with: UIColor(hex: "006994"))
+        let progress = CircularProgressView()
         progress.translatesAutoresizingMaskIntoConstraints = false
         return progress
     }()
@@ -55,7 +66,7 @@ class MainView: UIView {
     
     required init() {
         super.init(frame: .zero)
-        backgroundColor = UIColor(hex: "f7fbfd")
+        backgroundColor = AppColors.viewBg.color
         setupView()
     }
     
@@ -71,9 +82,48 @@ class MainView: UIView {
         UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveLinear, animations: {
             self.player.view.alpha = 1
             self.labelCredits.alpha = 1
+            self.labelStep.alpha = 1
         }) { (completed) in
             self.player.play()
-            self.progress.startAnimating(duration: 10)
+            self.progress.startAnimating(duration: 30) { [weak self] (elapsedTime) in
+                switch elapsedTime {
+                case 28...30:
+                    let localizedString = AppLocalizedStrings.circularProgressView.string(key: "label_step1")
+                    self?.labelStep.text = "Step 1:\n" + localizedString
+                case 25...27:
+                    let localizedString = AppLocalizedStrings.circularProgressView.string(key: "label_step2")
+                    self?.labelStep.text = "Step 2:\n" + localizedString
+                case 22...24:
+                    let localizedString = AppLocalizedStrings.circularProgressView.string(key: "label_step3")
+                    self?.labelStep.text = "Step 3:\n" + localizedString
+                case 18...21:
+                    let localizedString = AppLocalizedStrings.circularProgressView.string(key: "label_step4")
+                    self?.labelStep.text = "Step 4:\n" + localizedString
+                case 16...18:
+                    let localizedString = AppLocalizedStrings.circularProgressView.string(key: "label_step5")
+                    self?.labelStep.text = "Step 5:\n" + localizedString
+                case 13...15:
+                    let localizedString = AppLocalizedStrings.circularProgressView.string(key: "label_step6")
+                    self?.labelStep.text = "Step 6:\n" + localizedString
+                case 10...12:
+                    let localizedString = AppLocalizedStrings.circularProgressView.string(key: "label_step7")
+                    self?.labelStep.text = "Step 7:\n" + localizedString
+                case 7...9:
+                    let localizedString = AppLocalizedStrings.circularProgressView.string(key: "label_step8")
+                    self?.labelStep.text = "Step 8:\n" + localizedString
+                case 5...6:
+                    let localizedString = AppLocalizedStrings.circularProgressView.string(key: "label_step9")
+                    self?.labelStep.text = "Step 9:\n" + localizedString
+                case 2...4:
+                    let localizedString = AppLocalizedStrings.circularProgressView.string(key: "label_step10")
+                    self?.labelStep.text = "Step 10:\n" + localizedString
+                case 0...2:
+                    let localizedString = AppLocalizedStrings.circularProgressView.string(key: "label_step11")
+                    self?.labelStep.text = "Final Step:\n" + localizedString
+                default:
+                    self?.labelStep.text = ""
+                }
+            }
         }
     }
     
@@ -92,6 +142,9 @@ class MainView: UIView {
         
         addSubview(progress)
         setupProgressConstraints()
+        
+        addSubview(labelStep)
+        setupLabelStepConstraints()
         
         addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTap)))
     }
@@ -113,6 +166,15 @@ class MainView: UIView {
         ])
     }
     
+    private func setupLabelStepConstraints() {
+        NSLayoutConstraint.activate([
+            labelStep.topAnchor.constraint(equalTo: labelCredits.bottomAnchor, constant: (Constants.edge * 2)),
+            labelStep.leadingAnchor.constraint(equalTo: leadingAnchor, constant: (Constants.edge * 2)),
+            labelStep.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -(Constants.edge * 2)),
+            labelStep.bottomAnchor.constraint(equalTo: progress.topAnchor, constant: -(Constants.edge * 2))
+        ])
+    }
+    
     private func setupProgressConstraints() {
         NSLayoutConstraint.activate([
             progress.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -(Constants.edge * 8)),
@@ -126,6 +188,7 @@ class MainView: UIView {
         UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveLinear, animations: { [weak self] in
             self?.player.view.alpha = 0
             self?.labelCredits.alpha = 0
+            self?.labelStep.alpha = 0
         }) { (completed) in
             self.player.pause()
         }
