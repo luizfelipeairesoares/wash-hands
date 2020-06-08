@@ -44,7 +44,7 @@ class CircularProgressView: UIView {
     
     // MARK: - Init
     
-    init(with color: UIColor) {
+    required init(with color: UIColor = UIColor(hex: "0E54A3")) {
         self.color = color
         super.init(frame: .zero)
     }
@@ -62,7 +62,7 @@ class CircularProgressView: UIView {
     
     // MARK: - Public Functions
     
-    public func startAnimating(duration: TimeInterval) {
+    public func startAnimating(duration: TimeInterval, progress: ((TimeInterval) -> Void)?) {
         if timer == nil {
             shapeLayer.strokeColor = color.cgColor
             
@@ -76,6 +76,7 @@ class CircularProgressView: UIView {
             label.text = "\(Int(elapsedTime))"
             timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self] (tmr) in
                 DispatchQueue.main.async { [weak self] in
+                    progress?(elapsedTime)
                     if elapsedTime > 0 {
                         elapsedTime -= 1
                         self?.label.text = "\(Int(elapsedTime))"
