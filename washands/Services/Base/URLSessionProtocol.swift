@@ -10,6 +10,6 @@ import Foundation
 
 protocol URLSessionProtocol {
     
-    func request<T: Decodable>(path: String, completion: @escaping (Result<T, Error>) -> Void)
+    func request<T: Decodable>(path: String, completion: @escaping (Result<T, APIErrors>) -> Void)
     
 }
