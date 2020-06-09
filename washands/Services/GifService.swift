@@ -8,10 +8,16 @@
 
 import Foundation
 
-struct GifService: BaseService {
+struct GifService: BaseServiceProtocol {
+    
+    let session: URLSessionProtocol
+    
+    init(session: URLSessionProtocol = BaseSession()) {
+        self.session = session
+    }
     
     func requestGifs(completion: @escaping (Result<[GiphyAPIEntity], Error>) -> Void) {
-        self.request(path: "/gifs") { (result: Result<GiphyAPIResponse, Error>) in
+        session.request(path: "/gifs") { (result: Result<GiphyAPIResponse, Error>) in
             switch result {
             case .success(let response):
                 completion(.success(response.data))
