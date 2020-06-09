@@ -9,7 +9,16 @@
 import UIKit
 import AVKit
 
-class MainViewController: UIViewController {
+protocol MainViewProtocol: AnyObject {
+    
+    var service: GifServiceProtocol { get }
+    var gifs: [GiphyAPIEntity] { get }
+    
+    init(service: GifServiceProtocol)
+    
+}
+
+class MainViewController: UIViewController, MainViewProtocol {
     
     // MARK: - Private Properties
     
@@ -19,9 +28,22 @@ class MainViewController: UIViewController {
         return view
     }()
     
-    private var gifs: [GiphyAPIEntity] = []
-    
     private var currentIndex: Int = 0
+    
+    var service: GifServiceProtocol
+    var gifs: [GiphyAPIEntity] = []
+    
+    // MARK: - Init
+    
+    required init(service: GifServiceProtocol = GifService()) {
+        self.service = service
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.service = GifService()
+        super.init(coder: coder)
+    }
     
     // MARK: - ViewController functions
     
@@ -38,7 +60,7 @@ class MainViewController: UIViewController {
     // MARK: - Private functions
     
     private func requestGifs() {
-        GifService().requestGifs { [weak self] (result) in
+        service.requestGifs { [weak self] (result) in
             switch result {
             case .success(let gifs):
                 self?.gifs.append(contentsOf: gifs)
