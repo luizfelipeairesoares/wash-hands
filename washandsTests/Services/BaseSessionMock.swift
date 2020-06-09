@@ -9,9 +9,9 @@
 import XCTest
 @testable import washands
 
-struct BaseSuccessSessionMock: URLSessionProtocol {
+struct BaseSessionMock: URLSessionProtocol {
     
-    let mockedData: Data
+    let mockedData: Data?
     
     private let jsonDecoder: JSONDecoder = {
         let jsonDecoder = JSONDecoder()
@@ -22,16 +22,20 @@ struct BaseSuccessSessionMock: URLSessionProtocol {
         return jsonDecoder
     }()
     
-    init(mockedData: Data) {
+    init(mockedData: Data?) {
         self.mockedData = mockedData
     }
     
-    func request<T>(path: String, completion: @escaping (Result<T, Error>) -> Void) where T : Decodable {
+    func request<T>(path: String, completion: @escaping (Result<T, APIErrors>) -> Void) where T : Decodable {
+        guard let data = mockedData else {
+            completion(.failure(APIErrors.unauthorizedError))
+            return
+        }
         do {
-            let object: T = try self.jsonDecoder.decode(T.self, from: mockedData)
+            let object: T = try self.jsonDecoder.decode(T.self, from: data)
             completion(.success(object))
         } catch {
-            fatalError()
+            completion(.failure(APIErrors.parserError(message: error.localizedDescription)))
         }
     }
     
