@@ -1,0 +1,22 @@
+/* 
+  CircularProgressViewLocalizable.strings
+  washands
+
+  Created by Luiz Felipe Aires Soares on 03/06/20.
+  Copyright © 2020 luizfelipeairesoares. All rights reserved.
+*/
+
+"label_start" = "Início";
+"label_credits" = "Creditos";
+"label_step" = "Passo";
+"label_step1" = "Molhe as mãos com água";
+"label_step2" = "Aplique sabão o suficiente para cobrir as mãos";
+"label_step3" = "Esfrege as mãos, palma com palma";
+"label_step4" = "Palma direita sob a esquerda com dedos entrelaçados e vice versa";
+"label_step5" = "Palma com Palma com dedos entrelaçados";
+"label_step6" = "'Costas' dos dedos para a palma da mão oposta com dedos entrelaçados";
+"label_step7" = "Segure o dedão esquerdo com a mão direita e esfregue com movimentos circulares e vice versa";
+"label_step8" = "Esfregue, com movimentos circulares, os dedos da mão direita na palma da mão esquerda e vice versa";
+"label_step9" = "Enxague as mãos com água";
+"label_step10" = "Seque bem com uma toalha de uso único";
+"label_step11" = "Use a toalha para fechar a torneira";
