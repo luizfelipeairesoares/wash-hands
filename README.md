@@ -1,7 +1,7 @@
 # wash-hands
 
 Wash hands is a small project to show my code, make some tests and, basically, just mess around with iOS development.
-The main idea is to not use any dependencies at all, or as less as possible.
+The main idea is to not use any dependencies at all, or the bare minimum.
 
 ---
 
