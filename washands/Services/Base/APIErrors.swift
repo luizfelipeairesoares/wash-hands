@@ -8,7 +8,21 @@
 
 import Foundation
 
-struct APIErrors: Error {
-    let code: Int
-    let message: String
+enum APIErrors: Error {
+    
+    case unauthorizedError
+    case parserError(message: String)
+    case backendError(message: String)
+    
+    var localizedDescription: String {
+        switch self {
+        case .unauthorizedError:
+            return "Unauthorized"
+        case .parserError(let message):
+            return message
+        case .backendError(let message):
+            return message
+        }
+    }
+    
 }
