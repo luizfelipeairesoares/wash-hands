@@ -23,7 +23,7 @@ class GifServiceTests: XCTestCase {
 
     func testRequestGifsSuccess() {
         let mockedResponse = MockResponse()
-        service = GifService(session: BaseSuccessSessionMock(mockedData: mockedResponse.data(json: "giphyResponse")))
+        service = GifService(session: BaseSessionMock(mockedData: mockedResponse.data(json: "giphyResponse")))
         var success = false
         let expectation = self.expectation(description: "request")
         service.requestGifs { (result) in
@@ -40,7 +40,7 @@ class GifServiceTests: XCTestCase {
     }
     
     func testRequestGifsFailure() {
-        service = GifService(session: BaseFailureSessionMock())
+        service = GifService(session: BaseSessionMock(mockedData: nil))
         var failure = false
         let expectation = self.expectation(description: "request")
         service.requestGifs { (result) in
