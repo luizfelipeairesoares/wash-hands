@@ -23,6 +23,13 @@
 		55D0F6AF247B2AA30091E44C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55D0F6AD247B2AA30091E44C /* LaunchScreen.storyboard */; };
 		55D0F6B0247B2AA30091E44C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55D0F6AE247B2AA30091E44C /* Main.storyboard */; };
 		55D0F6B3247B2E2B0091E44C /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0F6B2247B2E2B0091E44C /* CircularProgressView.swift */; };
+		55DB40AA248F0A5900C5116B /* GifServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DB40A9248F0A5900C5116B /* GifServiceTests.swift */; };
+		55DB40AC248F0B1700C5116B /* BaseSuccessSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DB40AB248F0B1700C5116B /* BaseSuccessSessionMock.swift */; };
+		55DB40AE248F0FFD00C5116B /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DB40AD248F0FFD00C5116B /* URLSessionProtocol.swift */; };
+		55DB40B0248F100F00C5116B /* BaseSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DB40AF248F100F00C5116B /* BaseSession.swift */; };
+		55DB40B2248F126A00C5116B /* BaseFailureSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DB40B1248F126A00C5116B /* BaseFailureSessionMock.swift */; };
+		55DB40B9248F185A00C5116B /* MockResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DB40B7248F17D900C5116B /* MockResponse.swift */; };
+		55DB40BA248F185D00C5116B /* giphyResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 55DB40B5248F17C300C5116B /* giphyResponse.json */; };
 		55DFFF41248087E500D834C8 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DFFF40248087E500D834C8 /* BaseService.swift */; };
 		55DFFF4324808A3B00D834C8 /* APIErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DFFF4224808A3B00D834C8 /* APIErrors.swift */; };
 		55DFFF4524808CDE00D834C8 /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55DFFF4424808CDE00D834C8 /* URLSession.swift */; };
@@ -41,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		551008EB248DB9C700DC914F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/CircularProgressViewLocalizable.strings"; sourceTree = "<group>"; };
 		5533A88C247DE18000EDB0DF /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		554888D0247F29E70013DD93 /* VideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayer.swift; sourceTree = "<group>"; };
 		5566CB8E248873770068C7E7 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
@@ -61,6 +69,13 @@
 		55D0F6AD247B2AA30091E44C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		55D0F6AE247B2AA30091E44C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		55D0F6B2247B2E2B0091E44C /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		55DB40A9248F0A5900C5116B /* GifServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifServiceTests.swift; sourceTree = "<group>"; };
+		55DB40AB248F0B1700C5116B /* BaseSuccessSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSuccessSessionMock.swift; sourceTree = "<group>"; };
+		55DB40AD248F0FFD00C5116B /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
+		55DB40AF248F100F00C5116B /* BaseSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSession.swift; sourceTree = "<group>"; };
+		55DB40B1248F126A00C5116B /* BaseFailureSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFailureSessionMock.swift; sourceTree = "<group>"; };
+		55DB40B5248F17C300C5116B /* giphyResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = giphyResponse.json; sourceTree = "<group>"; };
+		55DB40B7248F17D900C5116B /* MockResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockResponse.swift; sourceTree = "<group>"; };
 		55DFFF40248087E500D834C8 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		55DFFF4224808A3B00D834C8 /* APIErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIErrors.swift; sourceTree = "<group>"; };
 		55DFFF4424808CDE00D834C8 /* URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSession.swift; sourceTree = "<group>"; };
@@ -176,6 +191,7 @@
 		55D0F69D247B23810091E44C /* washandsTests */ = {
 			isa = PBXGroup;
 			children = (
+				55DB40B3248F15BA00C5116B /* Services */,
 				55D0F69E247B23810091E44C /* washandsTests.swift */,
 				55D0F6A0247B23810091E44C /* Info.plist */,
 			);
@@ -225,12 +241,42 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		55DB40B3248F15BA00C5116B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				55DB40A9248F0A5900C5116B /* GifServiceTests.swift */,
+				55DB40AB248F0B1700C5116B /* BaseSuccessSessionMock.swift */,
+				55DB40B1248F126A00C5116B /* BaseFailureSessionMock.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		55DB40B4248F179800C5116B /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				55DB40B7248F17D900C5116B /* MockResponse.swift */,
+				55DB40B5248F17C300C5116B /* giphyResponse.json */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		55DB40BB248F186C00C5116B /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				55DFFF4224808A3B00D834C8 /* APIErrors.swift */,
+				55DFFF40248087E500D834C8 /* BaseService.swift */,
+				55DB40AD248F0FFD00C5116B /* URLSessionProtocol.swift */,
+				55DB40AF248F100F00C5116B /* BaseSession.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		55DFFF3F248087CC00D834C8 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				55DB40B4248F179800C5116B /* Mock */,
+				55DB40BB248F186C00C5116B /* Base */,
 				55DFFF49248091FC00D834C8 /* GifService.swift */,
-				55DFFF40248087E500D834C8 /* BaseService.swift */,
-				55DFFF4224808A3B00D834C8 /* APIErrors.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -309,6 +355,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = 55D0F67B247B237F0091E44C;
 			productRefGroup = 55D0F685247B237F0091E44C /* Products */;
@@ -330,6 +377,7 @@
 				55D0F691247B23800091E44C /* Assets.xcassets in Resources */,
 				5566CB9324887DCA0068C7E7 /* CircularProgressViewLocalizable.strings in Resources */,
 				55D0F6AF247B2AA30091E44C /* LaunchScreen.storyboard in Resources */,
+				55DB40BA248F185D00C5116B /* giphyResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,11 +398,14 @@
 				55D0F68C247B237F0091E44C /* MainViewController.swift in Sources */,
 				5573D44A2481B52700C71462 /* GiphyAPIImagesEntity.swift in Sources */,
 				5573D4462481A98C00C71462 /* MainView.swift in Sources */,
+				55DB40B0248F100F00C5116B /* BaseSession.swift in Sources */,
 				5566CB8F248873770068C7E7 /* AppColors.swift in Sources */,
 				55DFFF4324808A3B00D834C8 /* APIErrors.swift in Sources */,
+				55DB40B9248F185A00C5116B /* MockResponse.swift in Sources */,
 				55D0F688247B237F0091E44C /* AppDelegate.swift in Sources */,
 				5566CB98248880570068C7E7 /* AppLocalizedStrings.swift in Sources */,
 				554888D1247F29E70013DD93 /* VideoPlayer.swift in Sources */,
+				55DB40AE248F0FFD00C5116B /* URLSessionProtocol.swift in Sources */,
 				55D0F6B3247B2E2B0091E44C /* CircularProgressView.swift in Sources */,
 				55DFFF48248090CD00D834C8 /* GiphyAPIEntity.swift in Sources */,
 				55DFFF4524808CDE00D834C8 /* URLSession.swift in Sources */,
@@ -370,6 +421,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55DB40B2248F126A00C5116B /* BaseFailureSessionMock.swift in Sources */,
+				55DB40AA248F0A5900C5116B /* GifServiceTests.swift in Sources */,
+				55DB40AC248F0B1700C5116B /* BaseSuccessSessionMock.swift in Sources */,
 				55D0F69F247B23810091E44C /* washandsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -389,6 +443,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				5566CB9424887DCA0068C7E7 /* en */,
+				551008EB248DB9C700DC914F /* pt-BR */,
 			);
 			name = CircularProgressViewLocalizable.strings;
 			sourceTree = "<group>";
@@ -400,6 +455,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -460,6 +516,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
